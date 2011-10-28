@@ -17,6 +17,7 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'spork'
+  gem 'launchy'
 end
 
 # Gems used only for assets and not required

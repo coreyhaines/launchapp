@@ -1,6 +1,4 @@
 Launchapp::Application.routes.draw do
-  get "status/index"
-
   get '/status' => "status#index"
 
   # The priority is based upon order of creation:

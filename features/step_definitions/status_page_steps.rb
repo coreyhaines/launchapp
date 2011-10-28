@@ -9,7 +9,20 @@ When /^I go to see my collected results$/ do
   visit '/status'
 end
 
+When /^I download the interested party details as csv$/ do
+  visit '/status'
+  click_link 'Download'
+end
+
 Then /^I should see (\d+) email address(?:es)? collected$/ do |count|
   page.should have_content("#{count} email addresses collected")
+end
+
+Then /^I should have an empty csv$/ do
+  # expected_lines = expected_csv.split("\n").map(&:strip)
+  page.response_headers['Content-Type'].should == "text/csv"
+  actual_lines = page.text.split("\n")
+  actual_lines.length.should == 1
+  actual_lines.should == ["email_address"]
 end
 
