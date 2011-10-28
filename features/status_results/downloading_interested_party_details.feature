@@ -8,3 +8,9 @@ Feature: Downloading details about interested parties
     When I download the interested party details as csv
     Then I should have an empty csv
 
+
+  Scenario: Somebody is interested
+    Given somebody has given me their email address
+    When I download the interested party details as csv
+    Then I should see the interested parties csv
+

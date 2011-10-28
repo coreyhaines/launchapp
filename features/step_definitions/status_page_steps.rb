@@ -26,3 +26,10 @@ Then /^I should have an empty csv$/ do
   actual_lines.should == ["email_address"]
 end
 
+Then /^I should see the interested parties csv$/ do
+  page.response_headers['Content-Type'].should == "text/csv"
+  actual_lines = page.text.split("\n")
+  actual_lines.length.should == 2
+  actual_lines.should == ["email_address", InterestedParty.last.email_address]
+end
+
